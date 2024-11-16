@@ -1,5 +1,5 @@
 const express = require("express");
-const { getClubs, getKlassmen, getSchedule } = require("./src/src/data");
+const { getClubs, getKlassmen, getSchedule } = require("./src/data");
 const app = express();
 const port = 3000;
 

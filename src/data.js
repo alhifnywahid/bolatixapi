@@ -79,17 +79,19 @@ async function getSchedule() {
 		const response = await axios.get("https://www.bola.net/jadwal-pertandingan/indonesia.html");
 		const html = response.data;
 		const $ = cheerio.load(html);
-    const schedule = [];
-    const promises = $(".main-table.main-table--jadwal tbody tr").map(async (i, element) => {
-      const url = $(element).find(".table_link").attr("href");
-      const datas = await getDetailSchedule(url);
-      schedule.push({
-        link: url,
-        datas
-      });
-    }).get();
-    await Promise.all(promises);
-    return schedule;
+		const schedule = [];
+		const promises = $(".main-table.main-table--jadwal tbody tr")
+			.map(async (i, element) => {
+				const url = $(element).find(".table_link").attr("href");
+				const datas = await getDetailSchedule(url);
+				schedule.push({
+					link: url,
+					datas,
+				});
+			})
+			.get();
+		await Promise.all(promises);
+		return schedule;
 	} catch (err) {
 		return err;
 	}
