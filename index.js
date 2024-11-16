@@ -22,11 +22,31 @@ app.get("/", (req, res) => {
 	res.send(`
     <div>
       <h1>List Routes</h1>
-        <ul>
+      <ul>
           ${Object.keys(routes)
 					.map((key) => `<li><a href="${routes[key].url}">${routes[key].name}</a></li>`)
-					.join("")}
+					.join("")} 
       </ul>
+     <ul>
+      <li>
+        <a href="https://github.com/alhifnywahid/bolatixapi.git" style="
+        display: inline-block;
+        font-size: 13px;
+        padding: 5px 10px; 
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        transition: background-color 0.3s, box-shadow 0.3s;
+      " 
+      onmouseover="this.style.backgroundColor='#0056b3'; this.style.boxShadow='0 4px 8px rgba(0, 86, 179, 0.3)'" 
+      onmouseout="this.style.backgroundColor='#007bff'; this.style.boxShadow='0 4px 8px rgba(0, 123, 255, 0.2)'">
+        Source Code
+    </a>
+      </li>
+     </ul>
     </div>
   `);
 });
